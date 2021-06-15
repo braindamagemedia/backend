@@ -1,5 +1,5 @@
 # backend
-The backend for Pinion.
+The absolutely broken backend for Pinion.
 
 # Routes
 The app has a few routes which allows you to make changes to the backend
