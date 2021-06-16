@@ -32,18 +32,14 @@ app.get('/get-opinions', (_, res) => {
 // Adding Opinions
 app.post('/add-opinion', (req, res) => {
     const { body } = req;
-    const { title, content, author } = body;
-
-    const date = new Date();
-    let hours = date.getHours().toString();
-    let minutes = date.getMinutes().toString();
+    const { title, content, author, date, time } = body;
 
     const payload = {
         title: title,
         content: content,
         author: author,
-        date: date.toDateString(),
-        time: `${hours}:${minutes}`
+        date: date,
+        time: time
     };
         
     const opinion = new Opinion(payload);
@@ -51,28 +47,4 @@ app.post('/add-opinion', (req, res) => {
     opinion.save()
         .then(result => res.send({ saved: true, id: result._id }))
         .catch(err => res.send(err));
-});
-
-// Searching Opinions By Title
-app.get('/search-opinion/title/:query', (req, res) => {
-    const query = req.params.query;
-    Opinion.find({ title: query }, (error, data) => {
-        if (error) {
-            res.send(error);
-        } else {
-            res.send(data);
-        }
-    });
-});
-
-// Searching Opinions By Author
-app.get('/search-opinion/author/:query', (req, res) => {
-    const query = req.params.query;
-    Opinion.find({ author: query }, (error, data) => {
-        if (error) {
-            res.send(error);
-        } else {
-            res.send(data);
-        }
-    });
 });
