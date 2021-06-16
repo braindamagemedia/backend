@@ -11,28 +11,7 @@ This route just returns an array containing all the opinions.
 This route is used to add new opinions. You can make a req to this as follows. I will be using axios.
 
 ```js
-axios.post('/add-opinion', { title: 'random title', content: 'random content', author: 'random author' })
+axios.post('/add-opinion', { title: 'random title', content: 'random content', author: 'random author' }) // After the new api update you need to add a few more stuff. Check the main.js file in my front end api.
   .then(console.log)
-  .catch(console.error)
-```
-
-### /search-opinion (GET)
-This route consists of 2 sub routes. Namely
-
-#### /search-opinion/title/:query
-You can search for a opinion using the title as follows. Like again I will be using axios.
-
-```js
-axios.get('/search-opinion/title/yourqueryhere')
-  .then(console.log) // This will return the single object which matches your query.
-  .catch(console.error)
-```
-
-#### /search-opinion/author/:query
-You can search for a opinion using the author as follows and ofcourse I will be using axios.
-
-```js
-axios.get('/search-opinion/author/yourqueryhere')
-  .then(console.log) // This will return the single object which matches your query.
   .catch(console.error)
 ```
