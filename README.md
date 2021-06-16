@@ -11,7 +11,7 @@ This route just returns an array containing all the opinions. Make a simple GET 
 This route is used to add new opinions. You can make a req to this as follows. I will be using axios.
 
 ```js
-const date = new Date(); // This has to be a must since the api need dates and time to work
+const date = new Date(); // This has to be a must since the api needs dates and time to work
 
 const payload = {
   title: 'Your title',
